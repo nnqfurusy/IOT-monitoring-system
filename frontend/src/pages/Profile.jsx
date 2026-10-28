@@ -4,7 +4,7 @@ import { useAuth } from "../AuthContext.jsx";
 
 const LINKS = [
   { icon: "🐙", title: "Mã nguồn (Source Code)", url: "https://github.com/nnqfurusy/IOT-monitoring-system" },
-  { icon: "📄", title: "Báo cáo PDF (PDF Report)", url: "https://report-iot-project.pdf" },
+  { icon: "📄", title: "Báo cáo PDF (PDF Report)", url: "https://drive.google.com/file/d/1uouMoSrdCXUoBcnUz6qeqYULtgRImLLh/view?usp=sharing" },
   { icon: "🎨", title: "Thiết kế Figma (Figma Design)", url: "https://www.figma.com/design/b0PiBUMOQIEwfHYcQYAgBD/IOT?node-id=0-1&t=iepRtat89MGvrvqJ-1" },
   { icon: "📘", title: "Thiết kế API (API Documentation)", url: "https://documenter.getpostman.com/view/59280069/2sBYHVvz7E" },
 ];
