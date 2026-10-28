@@ -3,10 +3,10 @@ import Header from "../components/Header.jsx";
 import { useAuth } from "../AuthContext.jsx";
 
 const LINKS = [
-  { icon: "🐙", title: "Mã nguồn (Source Code)", url: "https://github.com/nguyenvana/iot-project" },
+  { icon: "🐙", title: "Mã nguồn (Source Code)", url: "https://github.com/nnqfurusy/IOT-monitoring-system" },
   { icon: "📄", title: "Báo cáo PDF (PDF Report)", url: "https://report-iot-project.pdf" },
-  { icon: "🎨", title: "Thiết kế Figma (Figma Design)", url: "https://figma.com/design/iot-dashboard" },
-  { icon: "📘", title: "Thiết kế API (API Documentation)", url: "https://documenter.getpostman.com/view/59280069/2sBYHVvz2o#1189c47e-0e71-4e3f-9e30-3c14bba19ad0" },
+  { icon: "🎨", title: "Thiết kế Figma (Figma Design)", url: "https://www.figma.com/design/b0PiBUMOQIEwfHYcQYAgBD/IOT?node-id=0-1&t=iepRtat89MGvrvqJ-1" },
+  { icon: "📘", title: "Thiết kế API (API Documentation)", url: "https://documenter.getpostman.com/view/59280069/2sBYHVvz7E" },
 ];
 
 const Field = ({ label, children }) => <label className="field"><span>{label}</span>{children}</label>;
