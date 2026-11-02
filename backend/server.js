@@ -187,9 +187,9 @@ app.get("/api/sensors/chart", auth, async (req, res) => {
 });
 
 const FLAT = `
- SELECT id*3-2 AS fid, id AS rid, 1 AS ord, 'Nhiệt độ' AS type, CONCAT(temperature,' °C') AS value, DATE_FORMAT(created_at,'%Y-%m-%d %H:%i:%s') AS time FROM sensor_data
+ SELECT id*3 AS fid, id AS rid, 1 AS ord, 'Nhiệt độ' AS type, CONCAT(temperature,' °C') AS value, DATE_FORMAT(created_at,'%Y-%m-%d %H:%i:%s') AS time FROM sensor_data
  UNION ALL SELECT id*3-1, id, 2, 'Độ ẩm', CONCAT(humidity,' %'), DATE_FORMAT(created_at,'%Y-%m-%d %H:%i:%s') FROM sensor_data
- UNION ALL SELECT id*3, id, 3, 'Ánh sáng', CONCAT(light,' Lux'), DATE_FORMAT(created_at,'%Y-%m-%d %H:%i:%s') FROM sensor_data`;
+ UNION ALL SELECT id*3-2, id, 3, 'Ánh sáng', CONCAT(light,' Lux'), DATE_FORMAT(created_at,'%Y-%m-%d %H:%i:%s') FROM sensor_data`;
 app.get("/api/sensors/history", auth, async (req, res) => {
   const q = (req.query.q || "").trim(), by = req.query.by || "Tất cả";
   const [size, offset] = paging(req.query);
@@ -204,7 +204,7 @@ app.get("/api/sensors/history", auth, async (req, res) => {
   }
   const [[{ total }]] = await pool.query(`SELECT COUNT(*) AS total FROM (${FLAT}) t ${where}`, args);
   const [rows] = await pool.query(
-    `SELECT CONCAT('#',LPAD(fid,3,'0')) AS id, type, value, time FROM (${FLAT}) t ${where} ORDER BY rid DESC, ord ASC LIMIT ? OFFSET ?`,
+    `SELECT CONCAT('#',LPAD(fid,3,'0')) AS id, type, value, time FROM (${FLAT}) t ${where} ORDER BY fid DESC LIMIT ? OFFSET ?`,
     [...args, size, offset]);
   res.json({ rows, total });
 });
