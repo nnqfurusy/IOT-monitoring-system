@@ -22,6 +22,7 @@ export default function Pagination({ page, setPage, total, pageSize, setPageSize
         </label>
       </div>
       <div className="pages">
+        <button disabled={page === pages} onClick={() => setPage(1)}>Đầu tiên</button>
         <button disabled={page === 1} onClick={() => setPage(page - 1)}>Trước</button>
         {nums.map((n) => (
           <button key={n} className={n === page ? "on" : ""} onClick={() => setPage(n)}>{n}</button>
